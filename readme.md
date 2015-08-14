@@ -9,6 +9,7 @@ If login or password is None then send request to sms centre without this parame
 ### Settings:
 
 `SMS_GATES = {   
+
     "<handler_name>":{   
         "address":"<address>",   
     },  
