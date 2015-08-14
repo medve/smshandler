@@ -64,7 +64,7 @@ class SMSHandler(object):
             data[self.login_field_name] = self.login
             data[self.password_field_name] = self.password
         result = urllib2.urlopen(self.handler_address, urlencode(list(data.items())))
-        message_status = json.loads(result)
+        message_status = json.load(result)
         self._write_log(
             message_status[self.status_field_name], 
             message_status[self.phone_field_name],
