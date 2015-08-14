@@ -8,45 +8,45 @@ If login or password is None then send request to sms centre without this parame
 
 ### Settings:
 
-`SMS_GATES = {`
+`SMS_GATES = {
 
-    `"<handler_name>":{`
+    "<handler_name>":{
 
-        `"address":"<address>",`
+        "address":"<address>",
 
-    `},`
+    },
 
-    `"<handler_name>":{`
+    "<handler_name>":{
 
-        `"address":"<address>",`
+        "address":"<address>",
 
-        `"login":"<login>",`
+        "login":"<login>",
 
-        `"password":"<password>",`
+        "password":"<password>",
 
-    `},`
+    },
 
-    `"<handler_name>":{`
+    "<handler_name>":{
 
-        `"address":"<address>",`
+        "address":"<address>",
 
-        `"login":"<login>",`
+        "login":"<login>",
 
-        `"password":"<password>",`
+        "password":"<password>",
 
-        `"field_names":{`
+        "field_names":{
 
-            `"login_field_name":"<login_field_name>",`
+            "login_field_name":"<login_field_name>",
 
-            `"password_field_name":"<password_field_name>",`
+            "password_field_name":"<password_field_name>",
 
-             `...`
+             ...
 
-        `}`
+        }
 
-    `},`
+    },
 
-`}`
+}`
 
 *get_handler_by_name(handler_name)* - Use it for getting handlers that was defined in settings.SMS_GATES
 
