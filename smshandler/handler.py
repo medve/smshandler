@@ -50,9 +50,9 @@ class SMSHandler(object):
         self.status_field_name = kwargs.get('status_field_name','status')
         self.error_code_field_name = kwargs.get('error_code_field_name','error_code')
         self.error_msg_field_name = kwargs.get('error_msg_field_name','error_msg')
-    
+
     def _write_log(self, status, phone, error_code = None, error_msg = None):
-        hl = HandlerLog(status = status, phone = phone, error_code = error_code, 
+        hl = HandlerLog(status = status, phone = phone, error_code = error_code,
                                                              error_msg = error_msg)
         hl.save()
 
@@ -66,13 +66,13 @@ class SMSHandler(object):
         result = urllib2.urlopen(self.handler_address, urlencode(list(data.items())))
         message_status = json.load(result)
         self._write_log(
-            message_status[self.status_field_name], 
+            message_status[self.status_field_name] == "OK", 
             message_status[self.phone_field_name],
             message_status.get(self.error_code_field_name, None),
             message_status.get(self.msg_code_field_name, None)
         )
         return message_status
- 
+
 def get_handler_by_name(handler_name):
     '''
     Use it for getting handlers that was defined in settings.SMS_GATES
@@ -97,4 +97,3 @@ def get_handler(address, login = None, password = None, **kwargs):
             password,
             **kwargs
         )
-
